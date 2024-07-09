@@ -1,0 +1,251 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x9fAD12EaffB77F05060BADbe1bb556A43C673595",
+      "txHash": "0x02037bb8185f36b3c45c211117affbf12fc7e44f824571c94ee26fbc86227054",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "98dba988060a93a6a7af8067296062641db3263d707a43d503af10724b1c3c34": {
+      "address": "0x04b76f049eA0af3bf8dc821AF7dE9CD07c004AD7",
+      "txHash": "0x54f155770201745fbb14467d47d119f541b867c196ce90e0cb8ccac7e561e898",
+      "layout": {
+        "solcVersion": "0.8.21",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:211"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:107"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_roles",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)179_storage)",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:259"
+          },
+          {
+            "label": "NFTCollectionVersion",
+            "offset": 0,
+            "slot": "251",
+            "type": "t_uint256",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:24"
+          },
+          {
+            "label": "SFTCollectionVersion",
+            "offset": 0,
+            "slot": "252",
+            "type": "t_uint256",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:25"
+          },
+          {
+            "label": "createdNftCollections",
+            "offset": 0,
+            "slot": "253",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:27"
+          },
+          {
+            "label": "createdSFTCollections",
+            "offset": 0,
+            "slot": "254",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:28"
+          },
+          {
+            "label": "currentNftCollectionImpl",
+            "offset": 0,
+            "slot": "255",
+            "type": "t_contract(NftCollection)14519",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:30"
+          },
+          {
+            "label": "currentSFTCollectionImpl",
+            "offset": 0,
+            "slot": "256",
+            "type": "t_contract(SFTCollection)16127",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:31"
+          },
+          {
+            "label": "implToVersion",
+            "offset": 0,
+            "slot": "257",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:33"
+          },
+          {
+            "label": "implToSFTVersion",
+            "offset": 0,
+            "slot": "258",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:34"
+          },
+          {
+            "label": "versionToImpl",
+            "offset": 0,
+            "slot": "259",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:36"
+          },
+          {
+            "label": "SFTversionToImpl",
+            "offset": 0,
+            "slot": "260",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:37"
+          },
+          {
+            "label": "isImplAvailable",
+            "offset": 0,
+            "slot": "261",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "NftCollectionFactory",
+            "src": "contracts/NftCollectionFactory.sol:39"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_contract(NftCollection)14519": {
+            "label": "contract NftCollection",
+            "numberOfBytes": "20"
+          },
+          "t_contract(SFTCollection)16127": {
+            "label": "contract SFTCollection",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)179_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(RoleData)179_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}

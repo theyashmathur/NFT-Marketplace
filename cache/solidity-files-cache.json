@@ -1,0 +1,3371 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/ISFTCollection.sol": {
+      "lastModificationDate": 1720536543970,
+      "contentHash": "502ee7a9769971eac1ab0a2822df108a",
+      "sourceName": "contracts/ISFTCollection.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ISFTCollection"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/SFTCollection.sol": {
+      "lastModificationDate": 1720536543971,
+      "contentHash": "d9d8af37f5e5a923332820e08e518950",
+      "sourceName": "contracts/SFTCollection.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
+        "./NftCollectionFactory.sol",
+        "./ISFTCollection.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SFTCollection"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/NftCollectionFactory.sol": {
+      "lastModificationDate": 1720536543969,
+      "contentHash": "96d80ea1397be2123bcc2a32def5855e",
+      "sourceName": "contracts/NftCollectionFactory.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol",
+        "./NftCollection.sol",
+        "./SFTCollection.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "NftCollectionFactory"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol": {
+      "lastModificationDate": 1720536810013,
+      "contentHash": "778fd3f58957398e5dae6d05912fa924",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControlUpgradeable.sol",
+        "../utils/ContextUpgradeable.sol",
+        "../utils/StringsUpgradeable.sol",
+        "../utils/introspection/ERC165Upgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AccessControlUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+      "lastModificationDate": 1720536810485,
+      "contentHash": "b9d00086379b2524eb287c850a1b2e54",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StringsUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
+      "lastModificationDate": 1720536810494,
+      "contentHash": "eb2268e7f08e65339fdf577dad98c925",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/draft-IERC1822Upgradeable.sol",
+        "../ERC1967/ERC1967UpgradeUpgradeable.sol",
+        "./Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "UUPSUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol": {
+      "lastModificationDate": 1720536810139,
+      "contentHash": "58bfd44eb122c6d88351e8eda0590068",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ECDSAUpgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "EIP712Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol": {
+      "lastModificationDate": 1720536810156,
+      "contentHash": "57eba3b8fbf5ed2f2baa7dfdb7beb693",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../StringsUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ECDSAUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol": {
+      "lastModificationDate": 1720536810204,
+      "contentHash": "a80a52e55673ab27217f4e565b5be411",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC1155Upgradeable.sol",
+        "./IERC1155ReceiverUpgradeable.sol",
+        "./extensions/IERC1155MetadataURIUpgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/ContextUpgradeable.sol",
+        "../../utils/introspection/ERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/NftCollection.sol": {
+      "lastModificationDate": 1720538719672,
+      "contentHash": "5ca7519a5b9da65dde79251826984430",
+      "sourceName": "contracts/NftCollection.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "./NftCollectionFactory.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "NftCollection"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol": {
+      "lastModificationDate": 1720536810404,
+      "contentHash": "d5a8f6e07ca38ec384856cfe9f08a867",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol": {
+      "lastModificationDate": 1720536810407,
+      "contentHash": "a407c5f8256246823385d0d7f0a83f57",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+      "lastModificationDate": 1720536810429,
+      "contentHash": "ec99d946db3685a3630554aa6055bd7f",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol": {
+      "lastModificationDate": 1720536810231,
+      "contentHash": "3fc3c7c0a2956f36e766691bb9473b06",
+      "sourceName": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../Proxy.sol",
+        "./ERC1967Upgrade.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1967Proxy"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1720536810719,
+      "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1720536810172,
+      "contentHash": "e240957102529c3ccf73bcf4527bcddc",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../Strings.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ECDSA"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
+      "lastModificationDate": 1720536810297,
+      "contentHash": "95ce4acb1c983b71ed51c0ebea8efd04",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721Upgradeable.sol",
+        "./IERC721ReceiverUpgradeable.sol",
+        "./extensions/IERC721MetadataUpgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/ContextUpgradeable.sol",
+        "../../utils/StringsUpgradeable.sol",
+        "../../utils/introspection/ERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol": {
+      "lastModificationDate": 1720536810272,
+      "contentHash": "4dc7cd48fcf3374dc73f8788fdcfcc93",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC721Upgradeable.sol",
+        "./IERC721EnumerableUpgradeable.sol",
+        "../../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721EnumerableUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol": {
+      "lastModificationDate": 1720536810383,
+      "contentHash": "21b43d1337ebc77c11da3cbe3fd65316",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IAccessControlUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1720536810052,
+      "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ContextUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1720536810451,
+      "contentHash": "b98e2f3a856e6e7f2106fb919bacab9e",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+      "lastModificationDate": 1720536810212,
+      "contentHash": "5f2d8b81c0ff5bd2047b4846c20b998d",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1720536810022,
+      "contentHash": "d42e87f4fba2b03ab4d3c14cb53d0c51",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "AddressUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
+      "lastModificationDate": 1720536810414,
+      "contentHash": "d6ecf203a5e72c845be9bbf2f304a289",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol": {
+      "lastModificationDate": 1720536810150,
+      "contentHash": "a6883cfd85607b16c121a02728369eb3",
+      "sourceName": "@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1822ProxiableUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+      "lastModificationDate": 1720536810215,
+      "contentHash": "d1ceeaa35b60471b1c6e50d29d70354a",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../beacon/IBeaconUpgradeable.sol",
+        "../../interfaces/draft-IERC1822Upgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/StorageSlotUpgradeable.sol",
+        "../utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "ERC1967UpgradeUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
+      "lastModificationDate": 1720536810391,
+      "contentHash": "21bffd733b4ca013e125a0ffe2e52254",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IBeaconUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
+      "lastModificationDate": 1720536810484,
+      "contentHash": "731fafe5fdaca6e0749253ab7ce7d3b9",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StorageSlotUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1720536810490,
+      "contentHash": "cf46906c4035f51639a22265066a9e78",
+      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Strings"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1720536810432,
+      "contentHash": "ba28cf60b52b00d2b3a190bcdf0952bd",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721ReceiverUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
+      "lastModificationDate": 1720536810434,
+      "contentHash": "59feb5948371a5644b37b0ea697968a2",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Upgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
+      "lastModificationDate": 1720536810431,
+      "contentHash": "76212ca0265501d1eb3dd1175e6afca4",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721MetadataUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721EnumerableUpgradeable.sol": {
+      "lastModificationDate": 1720536810430,
+      "contentHash": "bed9876900f8c465d42317f566c03828",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721EnumerableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721EnumerableUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1720536810415,
+      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/proxy/Proxy.sol": {
+      "lastModificationDate": 1720536810470,
+      "contentHash": "40b3d81a836d50ff47e03893dcaaf204",
+      "sourceName": "@openzeppelin/contracts/proxy/Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Proxy"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+      "lastModificationDate": 1720536810232,
+      "contentHash": "6baa887a798e95b14f34e093f117e9b2",
+      "sourceName": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../beacon/IBeacon.sol",
+        "../../interfaces/draft-IERC1822.sol",
+        "../../utils/Address.sol",
+        "../../utils/StorageSlot.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "ERC1967Upgrade"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/proxy/beacon/IBeacon.sol": {
+      "lastModificationDate": 1720536810394,
+      "contentHash": "b6bd23bf19e90b771337037706470933",
+      "sourceName": "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IBeacon"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+      "lastModificationDate": 1720536810167,
+      "contentHash": "2858d98e74e67987ec81b39605230b74",
+      "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1822Proxiable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/StorageSlot.sol": {
+      "lastModificationDate": 1720536810485,
+      "contentHash": "f993f8f50186952a59ee5e3a30b68222",
+      "sourceName": "@openzeppelin/contracts/utils/StorageSlot.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StorageSlot"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1720536810058,
+      "contentHash": "c476b3895a94798b88a4bb97399e6dfe",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1720536810405,
+      "contentHash": "eb51ed084f6f7fd2c7098715c5690285",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155ReceiverUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol": {
+      "lastModificationDate": 1720536810403,
+      "contentHash": "8b7e95c747e2dab3b5444b37410a8315",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC1155Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155MetadataURIUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/SFTSharedCollection.sol": {
+      "lastModificationDate": 1720536543970,
+      "contentHash": "5d13a0687429817c8b4fda7f00635033",
+      "sourceName": "contracts/SFTSharedCollection.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+        "./NftCollectionFactory.sol",
+        "./SFTCollection.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SFTSharedCollection"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/NftSharedCollection.sol": {
+      "lastModificationDate": 1720538894097,
+      "contentHash": "db1afa7733d38319198477197f2ffa5a",
+      "sourceName": "contracts/NftSharedCollection.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "./NftCollectionFactory.sol",
+        "./NftCollection.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "NftSharedCollection"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/MarketplaceBase.sol": {
+      "lastModificationDate": 1720536543970,
+      "contentHash": "cd99a344a9fe876154d7ca68c7cdd5a3",
+      "sourceName": "contracts/MarketplaceBase.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol",
+        "./NftCollection.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.21"
+      ],
+      "artifacts": [
+        "MarketplaceBase"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol": {
+      "lastModificationDate": 1720536810009,
+      "contentHash": "141240d6632637f38267138453986cb4",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControlEnumerableUpgradeable.sol",
+        "./AccessControlUpgradeable.sol",
+        "../utils/structs/EnumerableSetUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AccessControlEnumerableUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1720536810419,
+      "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/access/IAccessControlEnumerableUpgradeable.sol": {
+      "lastModificationDate": 1720536810382,
+      "contentHash": "528e2ae40c0c6471d72356f811661545",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/IAccessControlEnumerableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControlUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IAccessControlEnumerableUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol": {
+      "lastModificationDate": 1720536810161,
+      "contentHash": "69ca068b2545b9ec7fb8b6c6eba26111",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "EnumerableSetUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/MarketplaceERC1155.sol": {
+      "lastModificationDate": 1720536543969,
+      "contentHash": "ad2f4b627835462a06240d6e632980c8",
+      "sourceName": "contracts/MarketplaceERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./MarketplaceBase.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.21"
+      ],
+      "artifacts": [
+        "MarketplaceERC1155"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/INftCollection.sol": {
+      "lastModificationDate": 1720539216731,
+      "contentHash": "654c041748eb1a60c45530af0a04c4fd",
+      "sourceName": "contracts/INftCollection.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "INftCollection"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/NftCollectionV2000.sol": {
+      "lastModificationDate": 1720538346592,
+      "contentHash": "d03a82f212cf3bd93bbd183322f9728e",
+      "sourceName": "contracts/test/NftCollectionV2000.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol",
+        "../NftCollectionFactory.sol",
+        "../INftCollection.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "NftCollectionV2000"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol": {
+      "lastModificationDate": 1720536810257,
+      "contentHash": "423864a3015f28468c2a9506d2db2198",
+      "sourceName": "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "ERC2771ContextUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol": {
+      "lastModificationDate": 1720536810211,
+      "contentHash": "c6b6b3bcee67edef2833cdd43cfb82f7",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165StorageUpgradeable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/SFTCollectionV1000.sol": {
+      "lastModificationDate": 1720538346593,
+      "contentHash": "20f60f08ff917903b2ddf3805cb78fd2",
+      "sourceName": "contracts/test/SFTCollectionV1000.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "../NftCollectionFactory.sol",
+        "../ISFTCollection.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SFTCollectionV1000"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+      "lastModificationDate": 1720536810291,
+      "contentHash": "79ff1a7eb801a525aa315fb7a679eede",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721.sol",
+        "./IERC721Receiver.sol",
+        "./extensions/IERC721Metadata.sol",
+        "../../utils/Address.sol",
+        "../../utils/Context.sol",
+        "../../utils/Strings.sol",
+        "../../utils/introspection/ERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1720536810122,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+      "lastModificationDate": 1720536810433,
+      "contentHash": "c22d4395e33763de693fd440c6fd10e1",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Receiver"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1720536810221,
+      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+      "lastModificationDate": 1720536810432,
+      "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Metadata"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol": {
+      "lastModificationDate": 1720536810193,
+      "contentHash": "9be05ac5a08ad0370e3cc36665ca490c",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/ERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC1155.sol",
+        "./IERC1155Receiver.sol",
+        "./extensions/IERC1155MetadataURI.sol",
+        "../../utils/Address.sol",
+        "../../utils/Context.sol",
+        "../../utils/introspection/ERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol": {
+      "lastModificationDate": 1720536810408,
+      "contentHash": "9f8822b72fe2702979e40160cb6d9636",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155Receiver"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol": {
+      "lastModificationDate": 1720536810406,
+      "contentHash": "9148c2e10c4efb12c71a7f080da5559b",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC1155.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155MetadataURI"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/NftCollectionFactoryV1000.sol": {
+      "lastModificationDate": 1720538346591,
+      "contentHash": "568834a3967ec2e692f401ccd8f083b6",
+      "sourceName": "contracts/test/NftCollectionFactoryV1000.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol",
+        "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol",
+        "../NftCollection.sol",
+        "../SFTCollection.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "NftCollectionFactoryV1000"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/NftCollectionV1000.sol": {
+      "lastModificationDate": 1720538346592,
+      "contentHash": "154c7a278a14efef3379f274c538a601",
+      "sourceName": "contracts/test/NftCollectionV1000.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol",
+        "../NftCollectionFactory.sol",
+        "../INftCollection.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "NftCollectionV1000"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1720536810241,
+      "contentHash": "af7bd64e1cfefbf6cb07f2adc1a25392",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1720536810422,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/SettlementToken.sol": {
+      "lastModificationDate": 1720538346593,
+      "contentHash": "815d97679e4c3fd52b63338263f691ff",
+      "sourceName": "contracts/test/SettlementToken.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "SettlementToken"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1720536810465,
+      "contentHash": "e436cea06129be2c73cda4b1acc848b5",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/ERC721ForTests.sol": {
+      "lastModificationDate": 1720538346590,
+      "contentHash": "4f35eeb47cebe533223283fa45edcd60",
+      "sourceName": "contracts/test/ERC721ForTests.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "ERC721ForTests"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/ERC1155ForTests.sol": {
+      "lastModificationDate": 1720538346590,
+      "contentHash": "388db061a35cf20ad4f11c131d77d00b",
+      "sourceName": "contracts/test/ERC1155ForTests.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC1155/ERC1155.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "ERC1155ForTests"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol": {
+      "lastModificationDate": 1720536810300,
+      "contentHash": "54062ff887823a306b33ea6494a220bc",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Holder"
+      ]
+    },
+    "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/test/NftHolder.sol": {
+      "lastModificationDate": 1720538346592,
+      "contentHash": "a11cf4456a113e4f356e40b74846d97e",
+      "sourceName": "contracts/test/NftHolder.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "viaIR": true,
+          "evmVersion": "london",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1,
+            "details": {
+              "yulDetails": {
+                "optimizerSteps": "u"
+              }
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "NftHolder"
+      ]
+    }
+  }
+}
