@@ -7,7 +7,9 @@ import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721Enumer
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
 import "./NftCollectionFactory.sol";
+import "./INftCollection.sol";
 
 /// @title A parametric NFT collection
 /// @notice This smart contract is intended to be used by a smart contract factory
@@ -18,7 +20,8 @@ contract NftCollection is
     ERC721EnumerableUpgradeable,
     UUPSUpgradeable,
     EIP712Upgradeable,
-    AccessControlUpgradeable
+    AccessControlUpgradeable,
+    ERC165StorageUpgradeable
 {
     uint256 public constant version = 1;
     address public collectionCreator;
@@ -79,6 +82,11 @@ contract NftCollection is
         __EIP712_init(_name, "0.0.1");
         __UUPSUpgradeable_init();
         _setupRole(DEFAULT_ADMIN_ROLE, _collectionCreator);
+
+        _registerInterface(type(INftCollection).interfaceId);
+        _registerInterface(type(IERC721Upgradeable).interfaceId);
+        _registerInterface(type(AccessControlUpgradeable).interfaceId);
+
         baseUri = _baseUri;
         contractUri = _contractUri;
         collectionCreator = _collectionCreator;
@@ -350,9 +358,11 @@ contract NftCollection is
         override(
             ERC721Upgradeable,
             ERC721EnumerableUpgradeable,
-            AccessControlUpgradeable
+            AccessControlUpgradeable,
+            ERC165StorageUpgradeable
         )
         returns (bool)
     {
+        return ERC165StorageUpgradeable.supportsInterface(interfaceId);
     }
 }
