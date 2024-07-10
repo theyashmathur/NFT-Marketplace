@@ -1,1 +1,4 @@
 NftCollectionFactory deployed to: 0x705505982049C3e94FACEfC6F9304206eAbC2e03
+NFT Collection(implementation contract) deployed to:  0x6A9ee01529dCF320B387F8FAd697aC8847af5Cbe
+NFT Collection(implementation contract) deployed to:  0xCBB8555BD018736f5688C7998E05b618678C4A3d
+Marketplace ERC1155 deployed to: 0xD437DafFEb871CcE62ad039AE24b8a9F960Da6CF

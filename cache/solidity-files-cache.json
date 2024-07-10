@@ -626,8 +626,8 @@
       ]
     },
     "C:\\Github\\NFT-Marketplace\\contracts\\SFTCollection.sol": {
-      "lastModificationDate": 1720584333822,
-      "contentHash": "d9d8af37f5e5a923332820e08e518950",
+      "lastModificationDate": 1720602749999,
+      "contentHash": "0d9fc8c42ae7e9868cca54590985c9ab",
       "sourceName": "contracts/SFTCollection.sol",
       "solcConfig": {
         "version": "0.8.21",
@@ -661,6 +661,7 @@
         }
       },
       "imports": [
+        "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol",
