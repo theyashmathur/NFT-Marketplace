@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.21;
 
-import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts/token/ERC721/IERC721.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts/utils/cryptography/ECDSA.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts/token/ERC20/IERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
 import "./NftCollection.sol";
 
 contract MarketplaceBase is Initializable, UUPSUpgradeable, EIP712Upgradeable, AccessControlEnumerableUpgradeable {

@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.2;
 
-import "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
 import "../NftCollectionFactory.sol";
 import "../INftCollection.sol";
 import "hardhat/console.sol";

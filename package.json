@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
-    "@openzeppelin/contracts": "<=4.7.3",
-    "@openzeppelin/contracts-upgradeable": "<=4.7.3",
+    "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts": "<=4.7.3",
+    "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.6/contracts-upgradeable": "<=4.7.3",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
     "npm": "^10.2.0",
