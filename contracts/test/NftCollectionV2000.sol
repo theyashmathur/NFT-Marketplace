@@ -1,32 +1,22 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.2;
 
-import "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
 import "../NftCollectionFactory.sol";
-import "../INftCollection.sol";
 import "hardhat/console.sol";
 
-/// @title A parametric NFT collection
-/// @author Alexandros Andreou
-/// @notice This smart contract is intended to be used by a smart contract factory
-/// @dev Still needs testing
 contract NftCollectionV2000 is
-    INftCollection,
     Initializable,
     ERC721Upgradeable,
     ERC721EnumerableUpgradeable,
     UUPSUpgradeable,
     EIP712Upgradeable,
-    AccessControlUpgradeable,
-    ERC165StorageUpgradeable,
-    ERC2771ContextUpgradeable
+    AccessControlUpgradeable
 {
     uint256 public constant version = 2000;
     address public collectionCreator;
@@ -38,7 +28,32 @@ contract NftCollectionV2000 is
     uint256 public royaltyPercentDenominator;
     bool public frozen;
 
+    address public temporaryOwnerReturnNFT;
+    address public originalOwnerReturnNFT;
+
+
     bytes32 public constant RENTING_OPERATOR_ROLE = keccak256("RENTING_OPERATOR_ROLE");
+
+    bytes4 public constant NftContractRentableInterfaceId = 0xfebea3c0;
+
+    // bytes4 public constant NftContractRentableInterfaceId = (
+    //     bytes4(keccak256('temporaryOwnerReturnNFT()')) ^
+    //     bytes4(keccak256('originalOwnerReturnNFT()')) ^
+    //     bytes4(keccak256('RENTING_OPERATOR_ROLE()')) ^
+    //     bytes4(keccak256('originalOwners(uint256)')) ^
+    //     bytes4(keccak256('temporaryOwner(uint256)')) ^
+    //     bytes4(keccak256('rentTime(uint256)')) ^
+    //     bytes4(keccak256('prematureReturnAllowed(uint256)')) ^
+    //     bytes4(keccak256('rentNFT(address,address,uint256,uint256,bool)')) ^
+    //     bytes4(keccak256('returnNFT(uint256)'))
+    // );
+
+    struct SignedMint {
+        address from;
+        uint256 tokenId;
+        uint256 nonce;
+        bytes signature;
+    }
 
     event NewBaseURI(string _baseUri);
     event PermanentBaseURI(string _baseUri);
@@ -47,12 +62,11 @@ contract NftCollectionV2000 is
     mapping (uint256 => address) public temporaryOwner;
     mapping (uint256 => uint256) public rentTime;
     mapping (uint256 => bool) public prematureReturnAllowed;
-    mapping (bytes => bool) public cancelledSignatures;
 
     /// @notice constructor used to force implementation initialization
     /// @dev https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#initializing_the_implementation_contract
     /// @custom:oz-upgrades-unsafe-allow constructor
-    constructor(address _trustedForwarder) ERC2771ContextUpgradeable(_trustedForwarder) {
+    constructor() {
         _disableInitializers();
     }
 
@@ -88,25 +102,14 @@ contract NftCollectionV2000 is
         __UUPSUpgradeable_init();
         _setupRole(DEFAULT_ADMIN_ROLE, _collectionCreator);
         _setupRole(RENTING_OPERATOR_ROLE, _rentingProtocolAddress);
-
-        _registerInterface(type(INftCollection).interfaceId);
-        _registerInterface(type(ERC721EnumerableUpgradeable).interfaceId);
-        _registerInterface(type(AccessControlUpgradeable).interfaceId);
-
         baseUri = _baseUri;
         contractUri = _contractUri;
-
-        require(_collectionCreator != address(0));
         collectionCreator = _collectionCreator;
-
-        require(_beneficiary != address(0));
+        implementationProvider = msg.sender;
         beneficiary = _beneficiary;
-
         royaltyPercentNominator = _royaltyPercentNominator;
         royaltyPercentDenominator = _royaltyPercentDenominator;
         frozen = false;
-        implementationProvider = msg.sender;
-
         emit NewBaseURI(baseUri);
     }
 
@@ -145,7 +148,7 @@ contract NftCollectionV2000 is
         override
     {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(
@@ -160,7 +163,7 @@ contract NftCollectionV2000 is
     /// @param _baseUri - the new base URI
     function setBaseURI(string memory _baseUri) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(frozen == false, "Metadata frozen");
@@ -172,7 +175,7 @@ contract NftCollectionV2000 is
     /// @param _contractUri - the new contract URI
     function setContractURI(string memory _contractUri) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         contractUri = _contractUri;
@@ -180,12 +183,11 @@ contract NftCollectionV2000 is
 
     /// @notice Update beneficiary of royalty by admin
     /// @param _beneficiary The new nominator for the royalty percentage
-    function setBeneficiary(address _beneficiary) public virtual {
+    function setBeneficiary(address _beneficiary) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
-        require(_beneficiary != address(0));
         beneficiary = _beneficiary;
     }
 
@@ -196,9 +198,9 @@ contract NftCollectionV2000 is
     function setRoyalties(
         uint256 _royaltyPercentNominator,
         uint256 _royaltyPercentDenominator
-    ) public virtual {
+    ) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(
@@ -217,20 +219,21 @@ contract NftCollectionV2000 is
     /// @return returns minted token id
     function mint(uint256 _tokenId) public virtual returns (uint256) {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
-        _mint(_msgSender(), _tokenId);
+        _mint(msg.sender, _tokenId);
         return _tokenId;
     }
 
     /// @notice Freeze metadata
-    function setFreeze(bool _frozen) public virtual {
+    function freeze() public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
-        frozen = _frozen;
+        require(frozen == false, "Metadata already frozen");
+        frozen = true;
         emit PermanentBaseURI(baseUri);
     }
 
@@ -259,25 +262,11 @@ contract NftCollectionV2000 is
             );
     }
 
-    function cancelSignature(SignedMint memory sigMint) public {
-        require(!cancelledSignatures[sigMint.signature], "Signature is already cancelled");
-
-        address signer = ECDSAUpgradeable.recover(
-            _hash(sigMint.from, sigMint.tokenId, sigMint.nonce),
-            sigMint.signature
-        );
-        require(signer == _msgSender(), "Only the signer can cancell this signature");
-
-        cancelledSignatures[sigMint.signature] = true;
-    }
-
     function mintWithSignature(SignedMint memory sigMint) public virtual {
-        require(!cancelledSignatures[sigMint.signature], "Signature is cancelled");
-
         if (!_exists(sigMint.tokenId)) {
             require(sigMint.from != address(0), "invalid from address");
 
-            address signer = ECDSAUpgradeable.recover(
+            address signer = ECDSA.recover(
                 _hash(sigMint.from, sigMint.tokenId, sigMint.nonce),
                 sigMint.signature
             );
@@ -287,9 +276,55 @@ contract NftCollectionV2000 is
                 "Signer not allowed to lazy mint"
             );
 
-            cancelledSignatures[sigMint.signature] = true;
             _mint(sigMint.from, sigMint.tokenId);
         }
+    }
+
+
+    /// @notice Mint NFT by admin and transfer
+    /// @dev Assumes that if tryRecover returns ECDSA.RecoverError.NoError the signature is safe
+    /// @param from source of token id
+    /// @param to desintation of token id
+    /// @param tokenId the token id to be transfered
+    /// @param data the lazy-minted data
+    function mintWithSignatureAndSafeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) public {
+        // SignedMint memory signedMint = abi.decode(data, (SignedMint));
+        address sigFrom;
+        uint256 sigTokenId;
+        uint256 sigNonce;
+        bytes memory sigSignature;
+
+        if (!_exists(tokenId)) {
+            (sigFrom, sigTokenId, sigNonce, sigSignature) = abi.decode(
+                data,
+                (address, uint256, uint256, bytes)
+            );
+            SignedMint memory signedMint;
+            signedMint.from = sigFrom;
+            signedMint.tokenId = sigTokenId;
+            signedMint.nonce = sigNonce;
+
+            address signer = ECDSA.recover(
+                _hash(sigFrom, sigTokenId, sigNonce),
+                sigSignature
+            );
+
+            require(
+                hasRole(DEFAULT_ADMIN_ROLE, signer),
+                "Signer not allowed to lazy mint"
+            );
+            require(signer == sigFrom, "Seller mismatch");
+            require(signer != address(0), "Seller cannot be 0");
+
+            _mint(sigFrom, tokenId);
+        }
+
+        safeTransferFrom(from, to, tokenId);
     }
 
     function rentNFT(
@@ -313,16 +348,16 @@ contract NftCollectionV2000 is
     }
 
     function returnNFT(uint256 tokenId) public {
-        require(rentTime[tokenId] < block.timestamp, "Rent time has not expired yet");
+        require(rentTime[tokenId] < block.timestamp, "Rent time has not expired yet"); // all function state changes will be reverted
 
-        address _temporaryOwner = temporaryOwner[tokenId];
-        address _originalOwner = originalOwners[tokenId];
+        temporaryOwnerReturnNFT = temporaryOwner[tokenId];
+        originalOwnerReturnNFT = originalOwners[tokenId];
 
         temporaryOwner[tokenId] = address(0);
         rentTime[tokenId] = 0;
         originalOwners[tokenId] = address(0);
-
-        _transfer(_temporaryOwner, _originalOwner, tokenId);
+        
+        _transfer(temporaryOwnerReturnNFT, originalOwnerReturnNFT, tokenId);
     }
 
 
@@ -349,34 +384,25 @@ contract NftCollectionV2000 is
     /// @return super contract function result
     function supportsInterface(bytes4 interfaceId)
         public
-        virtual
         view
         override(
-            INftCollection,
             ERC721Upgradeable,
             ERC721EnumerableUpgradeable,
-            AccessControlUpgradeable,
-            ERC165StorageUpgradeable
+            AccessControlUpgradeable
         )
         returns (bool)
     {
-        return ERC165StorageUpgradeable.supportsInterface(interfaceId);
+        return interfaceId == NftContractRentableInterfaceId || super.supportsInterface(interfaceId);
     }
 
-    function _msgSender() internal view virtual override(ContextUpgradeable, ERC2771ContextUpgradeable) 
-        returns (address sender) {
-        sender = ERC2771ContextUpgradeable._msgSender();
+    string public newstuff;
+
+    function setNewStuffV2000(string memory _newstuff) public {
+        newstuff = _newstuff;
     }
 
-    function _msgData() internal view virtual override(ContextUpgradeable, ERC2771ContextUpgradeable)
-        returns (bytes calldata) {
-        return ERC2771ContextUpgradeable._msgData();
-    }
-
-    string public newStuff;
-
-    function setNewStuffV1000(string memory _newStuff) public {
-        newStuff = _newStuff;
+    function newStuffLength() public view returns (uint256) {
+        return bytes(newstuff).length;
     }
 
     uint256 public newestStuff;

@@ -11,6 +11,7 @@ import "./NftCollection.sol";
 import "./SFTCollection.sol";
 
 /// @title An NFT collection factory
+/// @author Alexandros Andreou
 /// @dev Still needs testing
 contract NftCollectionFactory is
     Initializable,
@@ -55,7 +56,7 @@ contract NftCollectionFactory is
             "Account nas no collection implementation provider role"
         );
 
-        // require(IERC165(newImplementation).supportsInterface(type(IERC721).interfaceId), "Provided contract doesn't support erc721");
+        require(IERC165(newImplementation).supportsInterface(type(IERC721).interfaceId), "Provided contract doesn't support erc721");
 
         currentNftCollectionImpl = NftCollection(newImplementation);
 
@@ -78,7 +79,7 @@ contract NftCollectionFactory is
             "Account nas no collection implementation provider role"
         );
 
-        // require(IERC165(newImplementation).supportsInterface(type(IERC1155).interfaceId), "Provided contract doesn't support erc1155");
+        require(IERC165(newImplementation).supportsInterface(type(IERC1155).interfaceId), "Provided contract doesn't support erc1155");
 
         currentSFTCollectionImpl = SFTCollection(newImplementation);
         

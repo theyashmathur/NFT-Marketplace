@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
@@ -66,10 +65,8 @@ contract SFTCollection is
         symbol = _symbol;
         baseUri = _baseUri;
         contractUri = _contractUri;
-        require(_collectionCreator != address(0));
         collectionCreator = _collectionCreator;
         implementationProvider = msg.sender;
-        require(_beneficiary != address(0));
         beneficiary = _beneficiary;
         royaltyPercentNominator = _royaltyPercentNominator;
         royaltyPercentDenominator = _royaltyPercentDenominator;
@@ -89,7 +86,7 @@ contract SFTCollection is
         override
     {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(
@@ -102,7 +99,7 @@ contract SFTCollection is
 
     function setBaseURI(string memory _baseUri) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(frozen == false, "Metadata frozen");
@@ -119,7 +116,7 @@ contract SFTCollection is
 
     function setContractURI(string memory _contractUri) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
 
@@ -131,11 +128,10 @@ contract SFTCollection is
 
     function setBeneficiary(address _beneficiary) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
 
-        require(_beneficiary != address(0));
         beneficiary = _beneficiary;
     }
 
@@ -144,7 +140,7 @@ contract SFTCollection is
         uint256 _royaltyPercentDenominator
     ) public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(
@@ -158,25 +154,25 @@ contract SFTCollection is
 
     function mint(uint256 _tokenId, uint256 _amount) public virtual {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
 
-        _mint(_msgSender(), _tokenId, _amount, "");
+        _mint(msg.sender, _tokenId, _amount, "");
     }
 
     function mintBatch(uint256[] memory _tokenIds, uint256[] memory _amounts) public virtual {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
 
-        _mintBatch(_msgSender(), _tokenIds, _amounts, "");
+        _mintBatch(msg.sender, _tokenIds, _amounts, "");
     }
 
     function freeze() public {
         require(
-            hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Account has no admin role"
         );
         require(frozen == false, "Metadata already frozen");
@@ -196,7 +192,7 @@ contract SFTCollection is
         )));
         address signer = ECDSAUpgradeable.recover(digest, sigMint.signature);
 
-        require(signer == _msgSender(), "Only the signer can cancel this signature");
+        require(signer == msg.sender, "Only the signer can cancel this signature");
         cancelledSignatures[sigMint.signature] = true;
     }
 
@@ -212,7 +208,7 @@ contract SFTCollection is
         )));
         address signer = ECDSAUpgradeable.recover(digest, sigMintBatch.signature);
 
-        require(signer == _msgSender(), "Only the signer can cancel this signature");
+        require(signer == msg.sender, "Only the signer can cancel this signature");
         cancelledSignatures[sigMintBatch.signature] = true;
     }
 
@@ -274,4 +270,5 @@ contract SFTCollection is
     {
         return interfaceId == SFTCollectionInterfaceId || super.supportsInterface(interfaceId);
     }
+
 }

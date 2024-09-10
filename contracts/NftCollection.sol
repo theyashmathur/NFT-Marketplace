@@ -7,11 +7,11 @@ import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721Enumer
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
 import "./NftCollectionFactory.sol";
-import "./INftCollection.sol";
+import "hardhat/console.sol";
 
 /// @title A parametric NFT collection
+/// @author Alexandros Andreou
 /// @notice This smart contract is intended to be used by a smart contract factory
 /// @dev Still needs testing
 contract NftCollection is
@@ -20,8 +20,7 @@ contract NftCollection is
     ERC721EnumerableUpgradeable,
     UUPSUpgradeable,
     EIP712Upgradeable,
-    AccessControlUpgradeable,
-    ERC165StorageUpgradeable
+    AccessControlUpgradeable
 {
     uint256 public constant version = 1;
     address public collectionCreator;
@@ -33,6 +32,26 @@ contract NftCollection is
     uint256 public royaltyPercentDenominator;
     bool public frozen;
 
+    address public temporaryOwnerReturnNFT;
+    address public originalOwnerReturnNFT;
+
+
+    bytes32 public constant RENTING_OPERATOR_ROLE = keccak256("RENTING_OPERATOR_ROLE");
+
+    bytes4 public constant NftContractRentableInterfaceId = 0xfebea3c0;
+
+    // bytes4 public constant NftContractRentableInterfaceId = (
+    //     bytes4(keccak256('temporaryOwnerReturnNFT()')) ^
+    //     bytes4(keccak256('originalOwnerReturnNFT()')) ^
+    //     bytes4(keccak256('RENTING_OPERATOR_ROLE()')) ^
+    //     bytes4(keccak256('originalOwners(uint256)')) ^
+    //     bytes4(keccak256('temporaryOwner(uint256)')) ^
+    //     bytes4(keccak256('rentTime(uint256)')) ^
+    //     bytes4(keccak256('prematureReturnAllowed(uint256)')) ^
+    //     bytes4(keccak256('rentNFT(address,address,uint256,uint256,bool)')) ^
+    //     bytes4(keccak256('returnNFT(uint256)'))
+    // );
+
     struct SignedMint {
         address from;
         uint256 tokenId;
@@ -40,10 +59,14 @@ contract NftCollection is
         bytes signature;
     }
 
-    mapping (bytes => bool) public cancelledSignatures;
-
     event NewBaseURI(string _baseUri);
     event PermanentBaseURI(string _baseUri);
+
+    mapping (uint256 => address) public originalOwners;
+    mapping (uint256 => address) public temporaryOwner;
+    mapping (uint256 => uint256) public rentTime;
+    mapping (uint256 => bool) public prematureReturnAllowed;
+    mapping (bytes => bool) public cancelledSignatures;
 
     /// @notice constructor used to force implementation initialization
     /// @dev https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#initializing_the_implementation_contract
@@ -70,7 +93,8 @@ contract NftCollection is
         string memory _contractUri,
         address _beneficiary,
         uint256 _royaltyPercentNominator,
-        uint256 _royaltyPercentDenominator
+        uint256 _royaltyPercentDenominator,
+        address _rentingProtocolAddress
     ) public virtual initializer {
         require(
             2 * _royaltyPercentNominator <= _royaltyPercentDenominator,
@@ -82,11 +106,7 @@ contract NftCollection is
         __EIP712_init(_name, "0.0.1");
         __UUPSUpgradeable_init();
         _setupRole(DEFAULT_ADMIN_ROLE, _collectionCreator);
-
-        _registerInterface(type(INftCollection).interfaceId);
-        _registerInterface(type(IERC721Upgradeable).interfaceId);
-        _registerInterface(type(AccessControlUpgradeable).interfaceId);
-
+        _setupRole(RENTING_OPERATOR_ROLE, _rentingProtocolAddress);
         baseUri = _baseUri;
         contractUri = _contractUri;
         collectionCreator = _collectionCreator;
@@ -330,6 +350,39 @@ contract NftCollection is
         safeTransferFrom(from, to, tokenId);
     }
 
+    function rentNFT(
+        address originalOwner, 
+        address _temporaryOwner, 
+        uint256 tokenId, 
+        uint256 rentReturnTimestamp, 
+        bool _prematureReturnAllowed
+    ) public {
+        require(hasRole(RENTING_OPERATOR_ROLE, msg.sender), "Caller is not the renting protocol");
+        require(originalOwners[tokenId] == address(0), "NFT is currnetly being rented");
+        require(originalOwner == ownerOf(tokenId), "Original owner mismatch.");
+        require(rentReturnTimestamp > block.timestamp, "return time cannot be set in the past");
+
+        _transfer(originalOwner, _temporaryOwner, tokenId);
+
+        originalOwners[tokenId] = originalOwner;
+        temporaryOwner[tokenId] = _temporaryOwner;
+        rentTime[tokenId] = rentReturnTimestamp;
+        prematureReturnAllowed[tokenId] = _prematureReturnAllowed;
+    }
+
+    function returnNFT(uint256 tokenId) public {
+        require(rentTime[tokenId] < block.timestamp, "Rent time has not expired yet"); // all function state changes will be reverted
+
+        temporaryOwnerReturnNFT = temporaryOwner[tokenId];
+        originalOwnerReturnNFT = originalOwners[tokenId];
+
+        temporaryOwner[tokenId] = address(0);
+        rentTime[tokenId] = 0;
+        originalOwners[tokenId] = address(0);
+        
+        _transfer(temporaryOwnerReturnNFT, originalOwnerReturnNFT, tokenId);
+    }
+
 
     /// @notice This is used because both ERC721 and ERC721Enumerable implement it
     /// @param from address the token is transfered from
@@ -340,6 +393,7 @@ contract NftCollection is
         address to,
         uint256 tokenId
     ) internal override(ERC721Upgradeable, ERC721EnumerableUpgradeable) {        
+        require(temporaryOwner[tokenId] == address(0), "NFT is currently rented by a user.");
 
         super._beforeTokenTransfer(from, to, tokenId);
     }
@@ -358,11 +412,10 @@ contract NftCollection is
         override(
             ERC721Upgradeable,
             ERC721EnumerableUpgradeable,
-            AccessControlUpgradeable,
-            ERC165StorageUpgradeable
+            AccessControlUpgradeable
         )
         returns (bool)
     {
-        return ERC165StorageUpgradeable.supportsInterface(interfaceId);
+        return interfaceId == NftContractRentableInterfaceId || super.supportsInterface(interfaceId);
     }
 }

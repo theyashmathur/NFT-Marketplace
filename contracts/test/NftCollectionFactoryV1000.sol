@@ -1,13 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.2;
 
-import "@openzeppelin/contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol";
 import "../NftCollection.sol";
 import "../SFTCollection.sol";
 
@@ -17,13 +13,12 @@ import "../SFTCollection.sol";
 contract NftCollectionFactoryV1000 is
     Initializable,
     UUPSUpgradeable,
-    AccessControlUpgradeable,
-    ERC2771ContextUpgradeable
+    AccessControlUpgradeable
 {
     bytes4 private constant INITIALIZE_FUNC_SELECTOR =
         bytes4(
             keccak256(
-                "initialize(address,string,string,string,string,address,uint256,uint256,address)"
+                "initialize(address,string,string,string,string,address,uint256,uint256)"
             )
         );
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
@@ -64,8 +59,6 @@ contract NftCollectionFactoryV1000 is
             "Account nas no collection implementation provider role"
         );
 
-        require(IERC165(newImplementation).supportsInterface(type(IERC721).interfaceId), "Provided contract doesn't support erc721");
-
         currentNftCollectionImpl = NftCollection(newImplementation);
 
         uint256 newVersion = NFTCollectionVersion;
@@ -86,8 +79,6 @@ contract NftCollectionFactoryV1000 is
             hasRole(COLLECTION_IMPLEMENTATION_PROVIDER_ROLE, msg.sender),
             "Account nas no collection implementation provider role"
         );
-
-        require(IERC165(newImplementation).supportsInterface(type(IERC1155).interfaceId), "Provided contract doesn't support erc1155");
 
         currentSFTCollectionImpl = SFTCollection(newImplementation);
         
@@ -140,7 +131,7 @@ contract NftCollectionFactoryV1000 is
     /// @notice constructor used to force implementation initialization
     /// @dev https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#initializing_the_implementation_contract
     /// @custom:oz-upgrades-unsafe-allow constructor
-    constructor(address _trustedForwarder) ERC2771ContextUpgradeable(_trustedForwarder) {
+    constructor() {
         _disableInitializers();
     }
 
@@ -206,16 +197,6 @@ contract NftCollectionFactoryV1000 is
         emit SFTCollectionCreated(createdSFTCollections.length - 1, address(SFTCollectionProxy));
 
         return address(SFTCollectionProxy);     
-    }
-
-    function _msgSender() internal view virtual override(ContextUpgradeable, ERC2771ContextUpgradeable) 
-        returns (address sender) {
-        sender = ERC2771ContextUpgradeable._msgSender();
-    }
-
-    function _msgData() internal view virtual override(ContextUpgradeable, ERC2771ContextUpgradeable)
-        returns (bytes calldata) {
-        return ERC2771ContextUpgradeable._msgData();
     }
 
     /*

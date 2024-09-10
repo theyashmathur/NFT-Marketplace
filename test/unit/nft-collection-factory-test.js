@@ -8,6 +8,9 @@ let nftCollectionFactory;
 let NftCollection;
 let SFTCollection;
 
+let NFTRenting;
+let rentingProtocol;
+
 let NftCollectionV1000;
 let NftCollectionFactoryV1000;
 let SFTCollectionV1000;
@@ -61,6 +64,8 @@ before(async function () {
     SFTCollection = await ethers.getContractFactory("SFTCollection");
     NftCollectionFactory = await ethers.getContractFactory("NftCollectionFactory");
 
+    NFTRenting = await ethers.getContractFactory("NFTRenting");
+    rentingProtocol = await upgrades.deployProxy(NFTRenting, { initializer: 'initialize', kind: 'uups' });
 
     [owner, alice, bob, collectionCreator, beneficiary, badActor] = await ethers.getSigners();
 
@@ -87,7 +92,8 @@ before(async function () {
                 this.contractUri,
                 this.beneficiary,
                 this.royaltyPercentNominator,
-                this.royaltyPercentDenominator
+                this.royaltyPercentDenominator,
+                this.rentingProtocolAddress
             ]
         }
     };

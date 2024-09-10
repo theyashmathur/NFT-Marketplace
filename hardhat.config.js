@@ -41,10 +41,6 @@ module.exports = {
       allowUnlimitedContractSize: true,
       timeout: 1800000,      
     },
-    polygon_amoy: {
-      url: 'https://rpc-amoy.polygon.technology',
-      accounts: [process.env.TESTNET_PRIVATE_KEY]
-    },
     mainnet_infura: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
       accounts: {

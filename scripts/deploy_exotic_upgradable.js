@@ -11,14 +11,14 @@ async function main() {
     
     console.log("Account balance:", (await deployer.getBalance()).toString());
   
-    const Nusas = await ethers.getContractFactory("NUSAS");
-    console.log("Deploying NUSAS...");
+    const ExoticUniqueContractFactory = await ethers.getContractFactory("ExoticUnique");
+    console.log("Deploying ExoticUnique...");
     // the array contains all the function arguments for the initializer function
     // the initializer function could be anything
     // example: await upgrades.deployProxy(TokenizedEuro, ["Euro", "EUR", 2], { initializer: 'initialize' });
-    const nusas = await upgrades.deployProxy(Nusas, [], { initializer: 'initialize', kind: 'uups' });
-    await nusas.deployed();
-    console.log("NUSAS deployed to:", nusas.address);
+    const exoticUniqueContract = await upgrades.deployProxy(ExoticUniqueContractFactory, [], { initializer: 'initialize' });
+    await exoticUniqueContract.deployed();
+    console.log("ExoticUnique deployed to:", exoticUniqueContract.address);
   }
   
   main()

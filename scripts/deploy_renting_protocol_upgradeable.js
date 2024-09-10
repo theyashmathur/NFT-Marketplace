@@ -10,11 +10,11 @@ async function main() {
     
     console.log("Account balance:", (await deployer.getBalance()).toString());
 
-    const NftCollectionFactory = await ethers.getContractFactory("NftCollectionFactory");
-    const collectionFactory = await upgrades.deployProxy(NftCollectionFactory, [deployer.address, deployer.address, deployer.address], { initializer: 'initialize', kind: 'uups' });
-    await collectionFactory.deployed();
+    const NFTRenting = await ethers.getContractFactory("NFTRenting");
+    const rentinProtocol = await upgrades.deployProxy(NFTRenting, { initializer: 'initialize', kind: 'uups' });
+    await rentinProtocol.deployed();
     
-    console.log("Collection Factory deployed to:", collectionFactory.address);
+    console.log("Renting Protocol deployed to:", rentinProtocol.address);
 }
 
 main()

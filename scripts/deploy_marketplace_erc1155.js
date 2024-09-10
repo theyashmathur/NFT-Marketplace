@@ -7,7 +7,7 @@ async function main() {
         "Deploying contracts with the account:",
         deployer.address
     );
-  
+    
     console.log("Account balance:", (await deployer.getBalance()).toString());
 
     const MarketplaceERC1155 = await ethers.getContractFactory("MarketplaceERC1155");

@@ -12,6 +12,7 @@ import "./NftCollection.sol";
 import "hardhat/console.sol";
 
 /// @title A parametric NFT collection
+/// @author Alexandros Andreou
 /// @notice This smart contract is intended to be used by a smart contract factory
 /// @dev Still needs testing
 contract NftSharedCollection is NftCollection {
@@ -28,7 +29,8 @@ contract NftSharedCollection is NftCollection {
         string memory _contractUri,
         address _beneficiary,
         uint256 _royaltyPercentNominator,
-        uint256 _royaltyPercentDenominator
+        uint256 _royaltyPercentDenominator,
+        address _rentingProtocolAddress
     ) public initializer {
         NftCollection.initialize(
             _collectionCreator,
@@ -38,7 +40,8 @@ contract NftSharedCollection is NftCollection {
             _contractUri,
             _beneficiary,
             _royaltyPercentNominator,
-            _royaltyPercentDenominator
+            _royaltyPercentDenominator,
+            _rentingProtocolAddress
         );
     }
 
