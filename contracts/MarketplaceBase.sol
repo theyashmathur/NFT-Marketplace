@@ -92,7 +92,7 @@ contract MarketplaceBase is Initializable, UUPSUpgradeable, EIP712Upgradeable, A
         marketplaceCommissionBeneficiary = msg.sender;
 
         settlementTokenStatusMap[0x7d45d91421EA7c6293B48C45Fd37E038D032A334] = true;
-    }
+     }
 
     function _authorizeUpgrade(address) internal virtual view override {
         require(

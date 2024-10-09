@@ -338,7 +338,7 @@ contract MarketplaceERC1155 is MarketplaceBase {
         // , "settlement token missmatch"
         );
         require(auctionSigMulti.auctionSig.settlementToken != address(0)
-        // , "settlement token for auctions/bids cannot be XVM"
+        // , "145"
         );
         require(auctionSigMulti.auctionSig.minimumBidPrice <= bidSigMulti.bidSig.bidValue
         // , "Bid less than the minimum bid price"

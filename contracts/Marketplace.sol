@@ -590,7 +590,7 @@ contract Marketplace is Initializable, UUPSUpgradeable, EIP712Upgradeable, Acces
         require(auctionSig.tokenContract == bidSig.tokenContract, "NFT contract mismatch");
         require(auctionSig.tokenId == bidSig.tokenId, "token ID mismatch");
         require(auctionSig.settlementToken == bidSig.settlementToken, "settlement token missmatch");
-        require(auctionSig.settlementToken != address(0), "settlement token for auctions/bids cannot be XVM");
+        require(auctionSig.settlementToken != address(0), "145");
         require(auctionSig.minimumBidPrice <= bidSig.bidValue, "Bid less than the minimum bid price");
 
         bytes32 auctionSigDigest = _hashTypedDataV4(keccak256(abi.encode(
@@ -662,7 +662,7 @@ contract Marketplace is Initializable, UUPSUpgradeable, EIP712Upgradeable, Acces
         require(auctionSigMulti.tokenContract == bidSigMulti.tokenContract, "NFT contract mismatch");
         require(auctionSigMulti.tokenId == bidSigMulti.tokenId, "token ID mismatch");
         require(auctionSigMulti.settlementToken == bidSigMulti.settlementToken, "settlement token missmatch");
-        require(auctionSigMulti.settlementToken != address(0), "settlement token for auctions/bids cannot be XVM");
+        require(auctionSigMulti.settlementToken != address(0), "145");
         require(auctionSigMulti.minimumBidPrice <= bidSigMulti.bidValue, "Bid less than the minimum bid price");
         require(auctionSigMulti.amount == bidSigMulti.amount,"amount mismutch");
         require(settlementTokenStatusMap[auctionSigMulti.settlementToken], "settlement token is not approved");

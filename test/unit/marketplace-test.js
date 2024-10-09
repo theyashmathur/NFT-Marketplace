@@ -612,7 +612,7 @@ describe("NFTSpace Marketplace", function() {
         expect(await settlementToken.balanceOf(beneficiary.address)).to.equal(toBeneficiary);
     });
 
-    it("Should allow to buy NFT for XVM by using a signature", async function() {
+    it("Should allow to buy NFT for ETH by using a signature", async function() {
         await ERC721TokenContract.mint(seller.address, tokenId);
         await ERC721TokenContract.connect(seller).setApprovalForAll(marketplaceContract.address, true);
         await marketplaceContract.setSettlementTokenStatus(settlementToken.address, true);
@@ -1020,7 +1020,7 @@ describe("NFTSpace Marketplace", function() {
         expect(await marketplaceContract.amountAvailableErc1155(sigHash2)).to.be.equal(9);
     });
 
-    it("Should allow to buy many NFTs for XVM by using multiple signatures", async function() {
+    it("Should allow to buy many NFTs for ETH by using multiple signatures", async function() {
         const buyAmount = 6;
         const totalPrice = buyAmount * settlementPrice;
 
@@ -1142,7 +1142,7 @@ describe("NFTSpace Marketplace", function() {
         await expect(marketplaceContract.connect(buyer).buyBySigMulti(ethers.constants.AddressZero, 1, sellSigMulti)).to.be.revertedWith("wrong NFT Collection address");
     });
     
-    it("Should not allow buying NFT if the buyer doesn't send enough XVM", async function() {
+    it("Should not allow buying NFT if the buyer doesn't send enough ETH", async function() {
         await ERC1155TokenContract.connect(seller).setApprovalForAll(marketplaceContract.address, true);
         const buyAmount = 5;
 
