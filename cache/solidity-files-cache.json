@@ -3453,8 +3453,8 @@
       ]
     },
     "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/MarketplaceBase.sol": {
-      "lastModificationDate": 1725989285956,
-      "contentHash": "1464c3fc8c0ee85ac56d34d7eedb3037",
+      "lastModificationDate": 1734369245492,
+      "contentHash": "7c81892a5abb191db2e127dc21d578ff",
       "sourceName": "contracts/MarketplaceBase.sol",
       "solcConfig": {
         "version": "0.8.21",
@@ -3504,8 +3504,8 @@
       ]
     },
     "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/MarketplaceERC1155.sol": {
-      "lastModificationDate": 1725989101949,
-      "contentHash": "ef76c8c2ea0371c8a17ab25dbfa85092",
+      "lastModificationDate": 1734369245493,
+      "contentHash": "53954f35f7ca5f155eec3d34e6181a53",
       "sourceName": "contracts/MarketplaceERC1155.sol",
       "solcConfig": {
         "version": "0.8.21",
@@ -4068,8 +4068,8 @@
       ]
     },
     "/Users/yashmathur/Documents/GitHub/NFT-Marketplace/contracts/Marketplace.sol": {
-      "lastModificationDate": 1725989489837,
-      "contentHash": "4bb8c762f40aa4089e49921d89ddf541",
+      "lastModificationDate": 1734369245491,
+      "contentHash": "7b05beac2fb4146a7e30118963a41c67",
       "sourceName": "contracts/Marketplace.sol",
       "solcConfig": {
         "version": "0.8.21",
