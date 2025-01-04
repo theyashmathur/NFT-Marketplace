@@ -41,12 +41,10 @@ module.exports = {
       allowUnlimitedContractSize: true,
       timeout: 1800000,      
     },
-    mainnet_infura: {
-      url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: {
-        mnemonic: `${process.env.MAINNET_MNEMONIC}`
-      },
-      gasPrice: 0
+    bsc_testnet: {
+      url: `https://bsc-testnet.public.blastapi.io`,
+      accounts: [process.env.TESTNET_PRIVATE_KEY],
+      timeout: 1800000,
     },
     mainnet_alchemy: {
       url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
