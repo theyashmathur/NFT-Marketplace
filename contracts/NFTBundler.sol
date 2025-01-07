@@ -177,13 +177,6 @@ contract NFTBundler is
 
     function mint(uint256 _tokenId) public virtual override returns (uint256) {}
 
-    function mintWithSignatureAndSafeTransferFrom(
-        address from,
-        address to,
-        uint256 tokenId,
-        bytes memory data
-    ) public override {}
-
     function mintWithSignature(SignedMint memory sigMint) public override virtual {}
 
     function freeze() public virtual override {}

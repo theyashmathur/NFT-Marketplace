@@ -12,7 +12,17 @@ async function main() {
     console.log("Account balance:", (await deployer.getBalance()).toString());
   
     const NFTCollection = await ethers.getContractFactory("NftCollection");
-    const nftCollection = await NFTCollection.deploy();
+    const nftCollection = await upgrades.deployProxy(NFTCollection, [
+            "0xDbe0453602F9B940C4ae0057Cc25B6cf8ff3f200",
+            "NFT Collection",
+            "NFTC",
+            "ipfs://xxx/",
+            "ipfs://yyy/",
+            "0xDbe0453602F9B940C4ae0057Cc25B6cf8ff3f200",
+            1,
+            100,
+            "0x868026419b28b42dCfA38177c528073Ed740a1ad",
+        ], { initializer: 'initialize', kind: 'uups' });
     await nftCollection.deployed();
 
     console.log("NFT Collection deployed to: ", nftCollection.address);

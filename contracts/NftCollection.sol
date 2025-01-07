@@ -5,9 +5,11 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
 import "./NftCollectionFactory.sol";
+import "./INftCollection.sol";
 import "hardhat/console.sol";
 
 /// @title A parametric NFT collection
@@ -15,12 +17,15 @@ import "hardhat/console.sol";
 /// @notice This smart contract is intended to be used by a smart contract factory
 /// @dev Still needs testing
 contract NftCollection is
+    INftCollection,
     Initializable,
     ERC721Upgradeable,
     ERC721EnumerableUpgradeable,
     UUPSUpgradeable,
     EIP712Upgradeable,
-    AccessControlUpgradeable
+    AccessControlUpgradeable,
+    ERC165StorageUpgradeable
+
 {
     uint256 public constant version = 1;
     address public collectionCreator;
@@ -40,24 +45,6 @@ contract NftCollection is
 
     bytes4 public constant NftContractRentableInterfaceId = 0xfebea3c0;
 
-    // bytes4 public constant NftContractRentableInterfaceId = (
-    //     bytes4(keccak256('temporaryOwnerReturnNFT()')) ^
-    //     bytes4(keccak256('originalOwnerReturnNFT()')) ^
-    //     bytes4(keccak256('RENTING_OPERATOR_ROLE()')) ^
-    //     bytes4(keccak256('originalOwners(uint256)')) ^
-    //     bytes4(keccak256('temporaryOwner(uint256)')) ^
-    //     bytes4(keccak256('rentTime(uint256)')) ^
-    //     bytes4(keccak256('prematureReturnAllowed(uint256)')) ^
-    //     bytes4(keccak256('rentNFT(address,address,uint256,uint256,bool)')) ^
-    //     bytes4(keccak256('returnNFT(uint256)'))
-    // );
-
-    struct SignedMint {
-        address from;
-        uint256 tokenId;
-        uint256 nonce;
-        bytes signature;
-    }
 
     event NewBaseURI(string _baseUri);
     event PermanentBaseURI(string _baseUri);
@@ -107,6 +94,11 @@ contract NftCollection is
         __UUPSUpgradeable_init();
         _setupRole(DEFAULT_ADMIN_ROLE, _collectionCreator);
         _setupRole(RENTING_OPERATOR_ROLE, _rentingProtocolAddress);
+
+        _registerInterface(type(INftCollection).interfaceId);
+        _registerInterface(type(ERC721EnumerableUpgradeable).interfaceId);
+        _registerInterface(type(AccessControlUpgradeable).interfaceId);
+
         baseUri = _baseUri;
         contractUri = _contractUri;
         collectionCreator = _collectionCreator;
@@ -270,7 +262,7 @@ contract NftCollection is
     function cancelSignature(SignedMint memory sigMint) public {
         require(!cancelledSignatures[sigMint.signature], "Signature is already cancelled");
 
-        address signer = ECDSA.recover(
+        address signer = ECDSAUpgradeable.recover(
             _hash(sigMint.from, sigMint.tokenId, sigMint.nonce),
             sigMint.signature
         );
@@ -285,7 +277,7 @@ contract NftCollection is
         if (!_exists(sigMint.tokenId)) {
             require(sigMint.from != address(0), "invalid from address");
 
-            address signer = ECDSA.recover(
+            address signer = ECDSAUpgradeable.recover(
                 _hash(sigMint.from, sigMint.tokenId, sigMint.nonce),
                 sigMint.signature
             );
@@ -300,55 +292,6 @@ contract NftCollection is
         }
     }
 
-
-    /// @notice Mint NFT by admin and transfer
-    /// @dev Assumes that if tryRecover returns ECDSA.RecoverError.NoError the signature is safe
-    /// @param from source of token id
-    /// @param to desintation of token id
-    /// @param tokenId the token id to be transfered
-    /// @param data the lazy-minted data
-    function mintWithSignatureAndSafeTransferFrom(
-        address from,
-        address to,
-        uint256 tokenId,
-        bytes memory data
-    ) public virtual {
-        // SignedMint memory signedMint = abi.decode(data, (SignedMint));
-        address sigFrom;
-        uint256 sigTokenId;
-        uint256 sigNonce;
-        bytes memory sigSignature;
-
-        if (!_exists(tokenId)) {
-            (sigFrom, sigTokenId, sigNonce, sigSignature) = abi.decode(
-                data,
-                (address, uint256, uint256, bytes)
-            );
-            SignedMint memory signedMint;
-            signedMint.from = sigFrom;
-            signedMint.tokenId = sigTokenId;
-            signedMint.nonce = sigNonce;
-
-            require(!cancelledSignatures[sigSignature], "Signature is cancelled");
-
-            address signer = ECDSA.recover(
-                _hash(sigFrom, sigTokenId, sigNonce),
-                sigSignature
-            );
-
-            require(
-                hasRole(DEFAULT_ADMIN_ROLE, signer),
-                "Signer not allowed to lazy mint"
-            );
-            require(signer == sigFrom, "Seller mismatch");
-            require(signer != address(0), "Seller cannot be 0");
-
-            cancelledSignatures[sigSignature] = true;
-            _mint(sigFrom, tokenId);
-        }
-
-        safeTransferFrom(from, to, tokenId);
-    }
 
     function rentNFT(
         address originalOwner, 
@@ -410,12 +353,15 @@ contract NftCollection is
         virtual
         view
         override(
+            INftCollection,
             ERC721Upgradeable,
             ERC721EnumerableUpgradeable,
-            AccessControlUpgradeable
+            AccessControlUpgradeable,
+            ERC165StorageUpgradeable
         )
         returns (bool)
     {
-        return interfaceId == NftContractRentableInterfaceId || super.supportsInterface(interfaceId);
+        return ERC165StorageUpgradeable.supportsInterface(interfaceId);
     }
+
 }

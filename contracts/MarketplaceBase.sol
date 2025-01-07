@@ -227,9 +227,9 @@ contract MarketplaceBase is Initializable, UUPSUpgradeable, EIP712Upgradeable, A
         require(token.ownerOf(sellSig.tokenId) != msg.sender
         // , "user is already the owner of this NFT"
         );
-        require(token.ownerOf(sellSig.tokenId) == sellSig.seller
+        // require(token.ownerOf(sellSig.tokenId) == sellSig.seller
         // , "seller is no longer the owner of this NFT"
-        );
+        // );
         require(token.isApprovedForAll(token.ownerOf(sellSig.tokenId), address(this))
         // , "marketplace is not approved as an operator"
         );

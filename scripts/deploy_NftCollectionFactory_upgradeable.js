@@ -16,7 +16,7 @@ async function main() {
     // the array contains all the function arguments for the initializer function
     // the initializer function could be anything
     // example: await upgrades.deployProxy(TokenizedEuro, ["Euro", "EUR", 2], { initializer: 'initialize' });
-    const nftCollectionFactory = await upgrades.deployProxy(NftCollectionFactory, ["0x7875D344f2ea7E6a0d47aD46673FA3B6ab1E42cc", "0x7875D344f2ea7E6a0d47aD46673FA3B6ab1E42cc", "0x7875D344f2ea7E6a0d47aD46673FA3B6ab1E42cc"], { initializer: 'initialize', kind: 'uups' });
+    const nftCollectionFactory = await upgrades.deployProxy(NftCollectionFactory, ["0xDbe0453602F9B940C4ae0057Cc25B6cf8ff3f200", "0xDbe0453602F9B940C4ae0057Cc25B6cf8ff3f200", "0xDbe0453602F9B940C4ae0057Cc25B6cf8ff3f200"], { initializer: 'initialize', kind: 'uups' });
     await nftCollectionFactory.deployed();
     console.log("NftCollectionFactory deployed to:", nftCollectionFactory.address);
 }

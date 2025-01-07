@@ -189,7 +189,7 @@ contract NFTRenting is Initializable, AccessControlUpgradeable, UUPSUpgradeable,
             rentSig.rentListingExpiry,
             rentSig.nonce
         )));
-        address signer = ECDSA.recover(digest, rentSig.signature);
+        address signer = ECDSAUpgradeable.recover(digest, rentSig.signature);
 
         if (signer != msg.sender) {
             revert originalOwnerMismatch({
